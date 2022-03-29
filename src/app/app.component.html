@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-filters [eventIsDisabled]="!!childComponent?.eventIsDisabled"
+             [datesAreDisabled]="!!childComponent?.datesAreDisabled"
+             (filterIsChanged)="childComponent?.setCurrentFilter($event)">
+</app-filters>
+<div class="p-2 card m-2">
+  <router-outlet (activate)="getComponent($event)"></router-outlet>
+</div>

@@ -1,0 +1,5 @@
+<ul ngbNav [activeId]="$url | async" class="nav-pills p-2">
+  <li [ngbNavItem]="link.url" *ngFor="let link of links">
+    <a ngbNavLink [routerLink]="link.url">{{ link.title }}</a>
+  </li>
+</ul>

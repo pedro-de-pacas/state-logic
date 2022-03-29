@@ -1,0 +1,31 @@
+<div class="d-inline-flex">
+  <div ngbDropdown class="p-2">
+    <button class="btn btn-outline-primary" id="eventSelector" [disabled]="eventIsDisabled"
+            ngbDropdownToggle>{{commonService.currentFilter.event.title}}</button>
+    <div ngbDropdownMenu aria-labelledby="eventSelector">
+      <button *ngFor="let event of commonService.events" ngbDropdownItem (click)="onSetEvent(event)">
+        {{event.title}}
+      </button>
+    </div>
+  </div>
+  <div class="p-2">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [ngModel]="commonService.currentFilter.startDate"
+             ngbDatepicker #d1="ngbDatepicker" (ngModelChange)="onSetStartDate($event)"
+             [disabled]="datesAreDisabled">
+      <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button" [disabled]="datesAreDisabled">
+        <img src="assets/calendar.png" alt="">
+      </button>
+    </div>
+  </div>
+  <div class="p-2">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [ngModel]="commonService.currentFilter.endDate"
+             ngbDatepicker #d2="ngbDatepicker" (ngModelChange)="onSetEndDate($event)"
+             [disabled]="datesAreDisabled">
+      <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button" [disabled]="datesAreDisabled">
+        <img src="assets/calendar.png" alt="">
+      </button>
+    </div>
+  </div>
+</div>
