@@ -16,12 +16,11 @@ export class DashboardComponent extends ChildComponent implements OnInit {
 
   override getMessage(): string {
     return this.checkIfEndDateDiffers() || this.checkIfStartDateDiffers() || this.checkIfEventDiffers()
-      ? `${this.commonService.currentFilter.event.value} ${this.commonService.startDate} ${this.commonService.endDate}`
+      ? `${this.commonService.currentFilter.event.title} ${this.commonService.startDate} ${this.commonService.endDate}`
       : 'noop';
   }
 
   ngOnInit(): void {
-    this.message = this.getMessage();
-    this.commonService.componentFilters[this.filterKey] = this.commonService.currentFilter;
+    this.onInit();
   }
 }

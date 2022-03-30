@@ -13,6 +13,11 @@ export abstract class ChildComponent {
 
   abstract getMessage(): string;
 
+  onInit(): void {
+    this.message = this.getMessage();
+    this.commonService.componentFilters[this.filterKey] = this.commonService.currentFilter;
+  };
+
   setCurrentFilter(filter: Filter): void {
     this.commonService.currentFilter = filter;
     this.message = this.getMessage();

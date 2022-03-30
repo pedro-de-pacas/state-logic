@@ -21,7 +21,6 @@ export class CohortComponent extends ChildComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.message = this.getMessage();
-    this.commonService.componentFilters[this.filterKey] = this.commonService.currentFilter;
+    this.onInit();
   }
 }

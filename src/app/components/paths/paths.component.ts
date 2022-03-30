@@ -15,11 +15,10 @@ export class PathsComponent extends ChildComponent implements OnInit {
   }
 
   override getMessage(): string {
-    return this.checkIfEventDiffers() ? this.commonService.currentFilter.event.value : 'noop' ;
+    return this.checkIfEventDiffers() ? this.commonService.currentFilter.event.title : 'noop' ;
   }
 
   ngOnInit(): void {
-    this.message = this.getMessage();
-    this.commonService.componentFilters[this.filterKey] = this.commonService.currentFilter;
+    this.onInit();
   }
 }
